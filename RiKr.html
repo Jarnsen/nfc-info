@@ -4,161 +4,202 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>RiKr – Tactical Mesh Node</title>
-<meta name="theme-color" content="#0b1a0b">
+<meta name="theme-color" content="#081308">
 
 <style>
 :root{
-  --bg:#0b1a0b;
-  --card:#0f2610;
-  --border:#1f3d1f;
+  --bg:#071207;
+  --card:#0c1f0d;
+  --border:#163616;
   --text:#d7f5d7;
+  --muted:rgba(215,245,215,.72);
+  --muted2:rgba(215,245,215,.55);
   --accent:#2cff6d;
 }
+
+*{box-sizing:border-box}
 
 body{
   margin:0;
   min-height:100vh;
   display:grid;
   place-items:center;
-  background:var(--bg);
+  background:radial-gradient(1200px 700px at 50% -10%, #0f2a10 0%, var(--bg) 55%);
   color:var(--text);
-  font-family:monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
 }
 
 .card{
-  width:min(92vw,700px);
-  padding:28px;
-  border-radius:14px;
+  width:min(92vw, 720px);
+  padding:26px 24px;
+  border-radius:16px;
   border:1px solid var(--border);
-  background:var(--card);
-  box-shadow:0 0 25px rgba(0,0,0,.6);
+  background:linear-gradient(180deg, rgba(12,31,13,.95), rgba(7,18,7,.92));
+  box-shadow:0 18px 40px rgba(0,0,0,.45);
 }
 
+/* Header */
 .header{
   display:flex;
   align-items:center;
   gap:12px;
+  padding-bottom:16px;
+  border-bottom:1px solid rgba(22,54,22,.75);
   margin-bottom:18px;
 }
 
 .led{
-  width:14px;
-  height:14px;
+  width:12px;
+  height:12px;
   border-radius:50%;
   background:var(--accent);
-  box-shadow:0 0 12px var(--accent);
-  animation:pulse 1.6s infinite;
+  box-shadow:0 0 10px rgba(44,255,109,.35);
+  animation:pulse 2.2s ease-in-out infinite;
 }
 
 @keyframes pulse{
-  0%{opacity:1;}
-  50%{opacity:.4;}
-  100%{opacity:1;}
+  0%,100%{opacity:.95}
+  50%{opacity:.35}
 }
 
 h1{
   margin:0;
-  font-size:24px;
-  letter-spacing:1px;
+  font-size:22px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
 }
 
+.host{
+  margin-left:auto;
+  font-size:12px;
+  color:var(--muted2);
+  letter-spacing:.06em;
+}
+
+/* Sections */
 .section{
-  margin-top:16px;
-  padding-top:12px;
-  border-top:1px solid var(--border);
+  padding:16px 0;
+  border-bottom:1px solid rgba(22,54,22,.55);
+}
+.section:last-of-type{border-bottom:none;padding-bottom:8px}
+
+.grid{
+  display:grid;
+  grid-template-columns: 220px 1fr;
+  gap:10px 16px;
 }
 
 .label{
-  opacity:.65;
-  font-size:13px;
+  font-size:12px;
+  color:var(--muted2);
+  letter-spacing:.08em;
+  text-transform:uppercase;
 }
 
 .value{
   font-size:16px;
-  margin-bottom:8px;
+  color:var(--text);
+  line-height:1.35;
 }
 
+/* Badges */
+.badges{display:flex;flex-wrap:wrap;gap:8px}
+.badge{
+  display:inline-block;
+  padding:4px 10px;
+  border-radius:999px;
+  border:1px solid rgba(22,54,22,.9);
+  background:rgba(7,18,7,.35);
+  font-size:12px;
+  color:var(--muted);
+  letter-spacing:.06em;
+}
+
+/* Contact */
 a{
   color:var(--accent);
   text-decoration:none;
+  font-weight:600;
 }
-
-a:hover{
-  text-decoration:underline;
-}
-
-.badge{
-  display:inline-block;
-  border:1px solid var(--border);
-  padding:2px 8px;
-  border-radius:999px;
-  font-size:12px;
-  margin-right:6px;
-  opacity:.85;
-}
+a:hover{ text-decoration:underline; }
 
 .note{
-  margin-top:16px;
-  font-size:13px;
-  opacity:.6;
-  line-height:1.45;
+  margin-top:14px;
+  padding-top:14px;
+  border-top:1px solid rgba(22,54,22,.55);
+  font-size:12.5px;
+  color:var(--muted);
+  line-height:1.5;
+}
+.small{
+  color:var(--muted2);
+  font-size:12px;
+  margin-top:6px;
+}
+
+/* Better on small screens */
+@media (max-width: 520px){
+  .grid{grid-template-columns:1fr}
+  .host{display:none}
 }
 </style>
 </head>
 
 <body>
-<div class="card">
+  <main class="card">
 
-  <div class="header">
-    <div class="led"></div>
-    <h1>CALLSIGN: RiKr</h1>
-  </div>
-
-  <div class="section">
-
-    <div class="label">NODE ID (Meshtastic)</div>
-    <div class="value">0xXXXXXX</div>
-
-    <div class="label">UNIT</div>
-    <div class="value">
-      <span class="badge">FschJgRgt 26</span>
-      <span class="badge">FschMrsZg</span>
+    <div class="header">
+      <div class="led"></div>
+      <h1>Callsign: RiKr</h1>
+      <div class="host">jarnsen.github.io</div>
     </div>
 
-    <div class="label">BESITZER</div>
-    <div class="value">J. Karsch</div>
+    <section class="section">
+      <div class="grid">
+        <div class="label">Node ID (Meshtastic)</div>
+        <div class="value">0xXXXXXX</div>
 
-  </div>
+        <div class="label">Unit</div>
+        <div class="value">
+          <div class="badges">
+            <span class="badge">FschJgRgt 26</span>
+            <span class="badge">FschMrsZg</span>
+          </div>
+        </div>
 
-  <div class="section">
+        <div class="label">Besitzer</div>
+        <div class="value">J. Karsch</div>
+      </div>
+    </section>
 
-    <div class="label">ROLLE</div>
-    <div class="value">Mobile Mesh Node (Meshtastic / ATAK)</div>
+    <section class="section">
+      <div class="grid">
+        <div class="label">Rolle</div>
+        <div class="value">Mobile Mesh Node (Meshtastic / ATAK)</div>
 
-    <div class="label">REGION</div>
-    <div class="value">EU 868 MHz</div>
+        <div class="label">Region</div>
+        <div class="value">EU 868 MHz</div>
 
-    <div class="label">GERÄT</div>
-    <div class="value">Heltec V3 (ohne GPS)</div>
+        <div class="label">Gerät</div>
+        <div class="value">Heltec V3 (ohne GPS)</div>
+      </div>
+    </section>
 
-  </div>
+    <section class="section">
+      <div class="grid">
+        <div class="label">Kontakt bei Fund</div>
+        <div class="value">
+          <a href="tel:+491726821543">0172 6821543</a>
+          <div class="small">Bitte kurz anrufen oder SMS senden.</div>
+        </div>
+      </div>
+    </section>
 
-  <div class="section">
-
-    <div class="label">KONTAKT BEI FUND</div>
-    <div class="value">
-      <a href="tel:+491726821543">0172 6821543</a>
+    <div class="note">
+      Privates Kommunikationsgerät. Teil eines verschlüsselten LoRa-Mesh-Netzwerks (PSK geschützt).<br>
+      Kein Zugriff über NFC möglich. Bitte nicht manipulieren – bei Fund kontaktieren.
     </div>
 
-  </div>
-
-  <div class="note">
-    Privates Kommunikationsgerät.<br>
-    Teil eines verschlüsselten LoRa-Mesh-Netzwerks (PSK geschützt).<br>
-    Kein Zugriff über NFC möglich.<br>
-    Bitte nicht manipulieren – bei Fund kontaktieren.
-  </div>
-
-</div>
+  </main>
 </body>
 </html>
