@@ -9,7 +9,7 @@
 <style>
 :root{
   --bg:#0b140d;
-  --card:rgba(18,32,20,.75);
+  --card:rgba(18,32,20,.78);
   --border:rgba(255,255,255,.08);
   --text:#e6f3e8;
   --muted:rgba(230,243,232,.65);
@@ -32,8 +32,8 @@ body{
 
 .card{
   width:min(92vw,720px);
-  padding:28px 24px;
-  border-radius:22px;
+  padding:30px 26px;
+  border-radius:24px;
   background:var(--card);
   backdrop-filter:blur(18px);
   -webkit-backdrop-filter:blur(18px);
@@ -44,8 +44,8 @@ body{
   display:flex;
   align-items:center;
   gap:10px;
-  padding-bottom:18px;
-  margin-bottom:18px;
+  padding-bottom:20px;
+  margin-bottom:20px;
   border-bottom:1px solid var(--border);
 }
 
@@ -64,7 +64,7 @@ h1{
 }
 
 .section{
-  margin-bottom:22px;
+  margin-bottom:24px;
 }
 
 .row{
@@ -96,9 +96,9 @@ h1{
 
 .badge{
   font-size:12px;
-  padding:4px 10px;
+  padding:5px 12px;
   border-radius:999px;
-  background:rgba(255,255,255,.06);
+  background:rgba(255,255,255,.05);
   border:1px solid var(--border);
   color:var(--muted);
 }
@@ -109,15 +109,31 @@ a{
   font-weight:600;
 }
 
+a:hover{
+  text-decoration:underline;
+}
+
+/* Info Box */
 .note{
-  margin-top:18px;
-  padding-top:18px;
-  border-top:1px solid var(--border);
+  margin-top:20px;
+  padding:18px 16px;
+  border-radius:16px;
+  background:rgba(255,255,255,.04);
+  border:1px solid var(--border);
   font-size:13px;
   color:var(--muted);
   line-height:1.5;
+  text-align:center;
 }
 
+.note strong{
+  display:block;
+  font-weight:600;
+  color:var(--text);
+  margin-bottom:6px;
+}
+
+/* Mobile */
 @media (max-width:520px){
   .row{flex-direction:column;align-items:flex-start}
   .value{text-align:left;margin-top:4px}
@@ -189,7 +205,8 @@ a{
   </div>
 
   <div class="note">
-    Privates Kommunikationsgerät. Teil eines verschlüsselten LoRa-Mesh-Netzwerks (PSK geschützt).<br>
+    <strong>Privates Kommunikationsgerät</strong>
+    Teil eines verschlüsselten LoRa-Mesh-Netzwerks (PSK geschützt).<br>
     Kein Zugriff über NFC möglich. Bitte nicht manipulieren – bei Fund kontaktieren.
   </div>
 
